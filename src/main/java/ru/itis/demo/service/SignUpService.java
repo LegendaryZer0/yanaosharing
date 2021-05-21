@@ -2,8 +2,11 @@ package ru.itis.demo.service;
 
 import ru.itis.demo.model.dto.PersonForm;
 import ru.itis.demo.model.Person;
+import ru.itis.demo.model.dto.RegistrationDto;
 
-public interface SignUpService {
+import java.util.Optional;
+
+public interface SignUpService { //Todo Переименовать в signIn
     int NAME_SIZE_ERROR = -8;
     int UNKNOWN_ERROR = -7;
     int EMPTY_FIELD = -6;
@@ -15,7 +18,9 @@ public interface SignUpService {
     int ALREADY_EXIST = 0;
     int SUCCESS = 1;
     int REGISTERED_WITH_ERROR = 2;
-    long signUp(PersonForm personForm);
+    long signIn(PersonForm personForm);
+    public Optional<Person> signUp(RegistrationDto registrationDto);
 
     void expel(Person person);
+
 }

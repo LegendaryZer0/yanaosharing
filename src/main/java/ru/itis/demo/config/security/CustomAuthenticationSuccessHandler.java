@@ -3,6 +3,7 @@ package ru.itis.demo.config.security;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContext;
@@ -60,7 +61,7 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
             }
         }
 
-        Person user = userRepository.findByEmail(email);
+        Person user = userRepository.findByEmail(email).orElseThrow(() -> new BadCredentialsException("Bad Credentials?"));
         PersonForm userDto;
         if (user == null) {
             userDto = PersonForm.builder()
@@ -69,7 +70,7 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
                     .password(OAUTH2_USER_PASSWORD)
                     .build();
             log.info("Sign up with: " + userDto);
-            signUpService.signUp(userDto);
+            signUpService.signIn(userDto);
         }
         UsernamePasswordAuthenticationToken authRequest = new UsernamePasswordAuthenticationToken(email, OAUTH2_USER_PASSWORD);
 
