@@ -1,4 +1,4 @@
-package ru.itis.demo.entity.dto;
+package ru.itis.demo.model.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

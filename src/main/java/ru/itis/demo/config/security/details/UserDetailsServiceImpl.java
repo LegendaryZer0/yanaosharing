@@ -6,7 +6,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import ru.itis.demo.entity.Person;
+import ru.itis.demo.model.Person;
 import ru.itis.demo.repository.PersonRepository;
 
 @Slf4j

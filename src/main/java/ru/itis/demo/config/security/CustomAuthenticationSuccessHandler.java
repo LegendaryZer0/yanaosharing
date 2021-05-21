@@ -10,8 +10,8 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.oauth2.core.user.DefaultOAuth2User;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.stereotype.Service;
-import ru.itis.demo.entity.Person;
-import ru.itis.demo.entity.dto.PersonForm;
+import ru.itis.demo.model.Person;
+import ru.itis.demo.model.dto.PersonForm;
 import ru.itis.demo.repository.PersonRepository;
 import ru.itis.demo.service.SignUpService;
 

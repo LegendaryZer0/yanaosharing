@@ -1,7 +1,7 @@
 package ru.itis.demo.service;
 
-import ru.itis.demo.entity.dto.PersonForm;
-import ru.itis.demo.entity.Person;
+import ru.itis.demo.model.dto.PersonForm;
+import ru.itis.demo.model.Person;
 
 public interface SignUpService {
     int NAME_SIZE_ERROR = -8;
