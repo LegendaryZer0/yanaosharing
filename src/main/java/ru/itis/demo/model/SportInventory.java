@@ -15,13 +15,12 @@ import java.util.List;
 @Data
 @Builder
 public class SportInventory {
-    @Id
-    private Long id;
+
     @ManyToOne(cascade = CascadeType.ALL)
     private  PointOfSale pointOfSale;
 
     @OneToMany(mappedBy = "sportInventory",fetch = FetchType.EAGER)
     private List<SportItemInfo> sportItemInfoList;
-
-    private String nameOfItem;
+    @Id
+    private String nameOfItem; //САМОКАТ
 }
