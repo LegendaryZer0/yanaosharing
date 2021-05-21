@@ -21,7 +21,7 @@ public class PointOfSale {
     @ManyToOne(cascade = CascadeType.ALL)
     private Landlord landlord;
 
-    @OneToMany(mappedBy = "pointOfSale")
+    @OneToMany(mappedBy = "pointOfSale",fetch = FetchType.EAGER)
     private List<SportInventory> sportInventoryList;
 
     private String nameOfOrganization;

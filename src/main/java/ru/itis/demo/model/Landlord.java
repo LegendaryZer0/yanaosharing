@@ -3,10 +3,7 @@ package ru.itis.demo.model;
 
 import lombok.*;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
@@ -22,7 +19,7 @@ public class Landlord {
     private String password;
     private String phone;
     @ToString.Exclude
-    @OneToMany(mappedBy = "landlord",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "landlord",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     private List<PointOfSale> pointOfSales;
 
     public enum State{

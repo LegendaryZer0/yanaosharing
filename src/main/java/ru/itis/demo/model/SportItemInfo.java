@@ -23,8 +23,10 @@ public class SportItemInfo {
     @Enumerated(EnumType.STRING)
     private  State state;
 
-    @OneToMany(mappedBy = "sportItemInfo")
+    @OneToMany(mappedBy = "sportItemInfo",fetch = FetchType.EAGER)
     private List<ReservationTime> reservationTimes;
+
+    private Long price;
 
     public enum State{
         Available,NOTAVAILABLE

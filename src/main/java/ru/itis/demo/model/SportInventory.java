@@ -20,7 +20,7 @@ public class SportInventory {
     @ManyToOne(cascade = CascadeType.ALL)
     private  PointOfSale pointOfSale;
 
-    @OneToMany(mappedBy = "sportInventory")
+    @OneToMany(mappedBy = "sportInventory",fetch = FetchType.EAGER)
     private List<SportItemInfo> sportItemInfoList;
 
     private String nameOfItem;
