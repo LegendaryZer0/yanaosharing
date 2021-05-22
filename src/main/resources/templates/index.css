@@ -134,6 +134,12 @@
     justify-content: space-around;
 }
 
+.theme {
+    outline: none;
+    border: 0;
+    background: 0;
+}
+
 .theme1 {
     width: 457px;
     color: rgba(43, 103, 246, 1);

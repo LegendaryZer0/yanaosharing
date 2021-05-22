@@ -12,9 +12,9 @@
     </header>
 
     <div class="themes">
-        <span class="theme1 theme">Я АРЕНДУЮ</span>
-        <span class="theme2 theme">КОГДА</span>
-        <span class="theme3 theme">В КОМПАНИИ ИЗ</span>
+        <button class="theme1 theme" onclick="swipeMediaContent(this, 0)">Я АРЕНДУЮ</button>
+        <button class="theme2 theme" onclick="swipeMediaContent(this, 1)">КОГДА</button>
+        <button class="theme3 theme" onclick="swipeMediaContent(this, 2)">В КОМПАНИИ ИЗ</button>
     </div>
 
     <div class="selects">
@@ -33,5 +33,19 @@
         <span class="btn-next-text">Далее</span>
     </div>
 </div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    function swipeMediaContent(button, num) {
+        // change font for text
+        $('.theme').each(function () {
+            $(this).css("color", "rgba(217, 217, 217, 1)");
+        });
+        $(button).css("color", "rgba(43, 103, 246, 1)");
+//         // move content
+//         let l2 = $(".profile-media-content-element").first().width() * num * (-1) + ($("#profile-media-container").width() - $(".profile-media-content-element").first().width()) / 2;
+//         console.log(l2);
+//         $("#profile-media-content").css({left: l2});
+    }
+</script>
 </body>
 </html>
