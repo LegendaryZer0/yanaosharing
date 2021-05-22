@@ -24,10 +24,10 @@ public class LoginAndSignUpService implements SignUpService{
     }
     public Optional<Person> signUp(RegistrationDto registrationDto){
 
-        if(personRepository.findByEmail(registrationDto.getLoginName()).isPresent()){
+        if(personRepository.findByEmail(registrationDto.getEmail()).isPresent()){
             return Optional.empty();
         }else {
-            return Optional.of(personRepository.save(registrationDto.getPerson()));
+            return Optional.of(personRepository.save(registrationDto.build()));
         }
 
 

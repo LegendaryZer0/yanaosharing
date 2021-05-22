@@ -13,6 +13,7 @@ import org.springframework.security.web.authentication.AuthenticationSuccessHand
 import org.springframework.stereotype.Service;
 import ru.itis.demo.model.Person;
 import ru.itis.demo.model.dto.PersonForm;
+import ru.itis.demo.model.dto.RegistrationDto;
 import ru.itis.demo.repository.PersonRepository;
 import ru.itis.demo.service.SignUpService;
 
@@ -62,15 +63,15 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
         }
 
         Person user = userRepository.findByEmail(email).orElseThrow(() -> new BadCredentialsException("Bad Credentials?"));
-        PersonForm userDto;
+        RegistrationDto userDto;
         if (user == null) {
-            userDto = PersonForm.builder()
+            userDto = RegistrationDto.builder()
                     .email(email)
                     .name(username)
                     .password(OAUTH2_USER_PASSWORD)
                     .build();
             log.info("Sign up with: " + userDto);
-            signUpService.signIn(userDto);
+            signUpService.signUp(userDto);
         }
         UsernamePasswordAuthenticationToken authRequest = new UsernamePasswordAuthenticationToken(email, OAUTH2_USER_PASSWORD);
 

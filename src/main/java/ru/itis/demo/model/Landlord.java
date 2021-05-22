@@ -22,8 +22,9 @@ public class Landlord implements Serializable {
     private String password;
     private String phone;
 
+    @ToString.Exclude
     @OneToMany(mappedBy = "landlord",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
-    private Set<PointOfSale> pointOfSales;
+    private List<PointOfSale> pointOfSales = new ArrayList<>();
 
     @Enumerated(EnumType.STRING)
     private State state;
