@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 import ru.itis.demo.service.PointOfSaleService;
 
 @RestController
-public class UserGiverController {
+public class PointGiverController {
     @Autowired
     private PointOfSaleService pointOfSaleService;
     @GetMapping("/getPoints")
