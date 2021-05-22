@@ -14,6 +14,7 @@
           rel="stylesheet">
     <link rel="stylesheet" href="<@spring.url '/css/easy.css'/>">
     <link rel="stylesheet" href="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/themes/sunny/jquery-ui.css">
+    <script src="https://maps.api.2gis.ru/2.0/loader.js?pkg=full&lazy=true"></script>
 </head>
 <body>
 <nav class="navbar navbar-light upper">
@@ -21,7 +22,7 @@
         <h1>YAMAO.SHARING</h1>
     </div>
 </nav>
-<div class="main d-flex justify-content-start align-items-center">
+<div class="main d-flex justify-content-start align-items-center" style="position: absolute">
     <form method="get" action="/filter" class="ms-5 shadow-lg p-3 mb-5 bg-body rounded filter">
         <div class="form-switch row mb-3 mx-3 align-items-center" style="height: 5%; padding: 0;">
             <div class="d-flex col-md-12 col-lg-6"><label class="form-check-label"
@@ -97,6 +98,8 @@
 
     </form>
 </div>
+
+
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
