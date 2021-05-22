@@ -22,6 +22,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.Optional;
 
 @Slf4j
 @Service
@@ -62,9 +63,9 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
             }
         }
 
-        Person user = userRepository.findByEmail(email).orElseThrow(() -> new BadCredentialsException("Bad Credentials?"));
+        Optional<Person> user = userRepository.findByEmail(email);
         RegistrationDto userDto;
-        if (user == null) {
+        if (user.isEmpty()) {
             userDto = RegistrationDto.builder()
                     .email(email)
                     .name(username)
