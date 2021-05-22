@@ -44,6 +44,8 @@ public class LandLordService  {
         sportInventory.setNameOfItem("Самокат");
         sportInventory.getSportItemInfoList().add(sportItemInfo);
 
+        sportItemInfo.setSportInventory(sportInventory);
+
         PointOfSale pointOfSale = new PointOfSale();
         pointOfSale.setNameOfOrganization("SportFIX");
         pointOfSale.setPositionX(34.43523);
