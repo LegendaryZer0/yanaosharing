@@ -24,6 +24,11 @@ public interface SalePointsRepository extends JpaRepository<PointOfSale,Long> {
             "inner join sport_item_info sii on si.id = sii.sport_inventory_id\n" +
             "inner join reservation_time rt on sii.id = rt.sport_item_info_id where price between :price_min and :price_max and name_of_item = :item_name;")
     public List<PointOfSale> getSalePointsWithPriceBetweenAndItemName(@Param("price_min")Long price_min, @Param("price_max")Long price_max, @Param("item_name")String item_name);
+
+//    @Query(nativeQuery = true,value = "select name_of_item from point_of_sale inner join sport_inventory si on point_of_sale.point_of_sale_id = si.point_of_sale_point_of_sale_id\n" +
+//            "inner join sport_item_info sii on si.id = sii.sport_inventory_id\n" +
+//            "inner join reservation_time rt on sii.id = rt.sport_item_info_id")
+//    public List<String> getAllItemNames();
     //language=SQL
     //SELECT * FROM point_of_sale inner join sport_inventory si on point_of_sale.point_of_sale_id = si.point_of_sale_point_of_sale_id
     //    inner join sport_item_info sii on si.id = sii.sport_inventory_id where (sii.price between :? and :?) and si.name_of_item = :?;
