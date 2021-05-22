@@ -60,6 +60,7 @@
         <!— Кнопка перехода в профиль —>
         <button type="button" class="me-3 btn btn-primary btn-circle"></button>
     </div>
+
 </nav>
 
 <!--Main-->
@@ -100,7 +101,7 @@
                             for (let i = 0; i < allMarkers.length; i++) {
                                 console.log(allMarkers[i].positionX + ' ' + allMarkers[i].positionY)
                                 markeri = DG.marker([allMarkers[i].positionX, allMarkers[i].positionY]).addTo(map).bindLabel('push me');
-                                markeri.bindPopup(allMarkers[i].nameOfOrganization + '\n' + allMarkers[i].description);
+                                markeri.bindPopup(allMarkers[i].nameOfOrganization + '\n' + allMarkers[i].description + '\n' + '<a class="btn btn-outline-info my-3 ml-3 mr-3" href="/showPointOfSale?pointOfSaleId=' + allMarkers[i].pointOfSaleId + '">Подробнее</a>');
                                 console.log(markeri);
                             }
                             createMarker.onclick = function () {
