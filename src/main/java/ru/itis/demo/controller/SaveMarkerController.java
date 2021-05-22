@@ -15,10 +15,11 @@ public class SaveMarkerController {
 
     @Autowired
     private MarkerService markerService;
+
     @PostMapping("/addMarker")
-    public void saveMarker(@RequestBody AvailableSearchDto dto){
+    public void saveMarker(@RequestBody AvailableSearchDto dto) {
         //TODO Эта хрень не обрабатывает JSON с фронта
         log.info("Starting saving   " + dto.toString());
-       // markerService.saveMarker(dto,principal);
+        // markerService.saveMarker(dto,principal);
     }
 }

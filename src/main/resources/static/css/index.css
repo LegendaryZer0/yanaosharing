@@ -3,6 +3,14 @@
     margin: 0;
 }
 
+button {
+    cursor: pointer;
+
+    outline: none;
+    border: 0;
+    background: 0;
+}
+
 .content {
     width: 100%;
     height: 100%;
@@ -26,11 +34,15 @@
     margin: 5vw;
 }
 
-.logo-image {
+.logo-btn {
     width: 5vw;
     height: 5vw;
 }
 
+.logo-image {
+    width: inherit;
+    height: inherit;
+}
 
 .header {
     width: 95vw;
@@ -50,8 +62,27 @@
     text-align: left;
 }
 
-.selects {
+.main-container {
     width: 100%;
+    height: 40vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.main {
+    display: flex;
+    flex-direction: row;
+    transition: .5s;
+    position: absolute;
+}
+
+.main-elem {
+    width: 100vw;
+    height: 100%;
+}
+
+.selects {
+    /* width: 100%; */
     height: 40vh;
     display: flex;
     flex-direction: row;
