@@ -7,10 +7,7 @@ import ru.itis.demo.model.dto.RegistrationDto;
 
 import java.util.Optional;
 
-public interface SignUpService { //Todo Переименовать в signIn
-    long signIn(PersonForm personForm);
-    public Optional<Person> signUp(RegistrationDto registrationDto);
-
+public interface SignUpService {
+    Person signUp(RegistrationDto registrationDto);
     void expel(Person person);
-
 }
