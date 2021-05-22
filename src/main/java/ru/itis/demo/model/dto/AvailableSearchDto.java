@@ -10,8 +10,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class AvailableSearchDto {
-    private Double xCor;
-    private Double yCor;
+    private Double xсor;
+    private Double yсor;
     private String nameOfOrg;
     private String descrOfOrg;
 

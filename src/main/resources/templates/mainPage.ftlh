@@ -157,18 +157,23 @@
                         type: 'POST',
                         url: "/addMarker",
                         contentType: 'application/json',
+
                         data: JSON.stringify({
-                            'xCor': xCor,
-                            'yCor': yCor,
+                            'xсor': xCor,
+                            'yсor': yCor,
                             'nameOfOrg': nameOfOrg,
                             'descrOfOrg': descrOfOrg
+
                         }),
+                        headers: {'X-CSRF-TOKEN': '${_csrf.token}'},
                         success: function (response) {
                             $('#nameOfOrg').val('');
                             $('#descrOfOrg').val('');
                         },
                         error: function (e) {
+
                             $('#des').append($('<h4 id="err">Что-то пошло не так</h4>'))
+                            console.log(xCor + ' ' + yCor);
                         }
                     });
                 }
