@@ -6,6 +6,8 @@ import ru.itis.demo.model.Landlord;
 import ru.itis.demo.model.PointOfSale;
 import ru.itis.demo.repository.SalePointsRepository;
 
+import java.util.List;
+
 @Service
 public class PointOfSaleService {
     @Autowired
@@ -13,5 +15,8 @@ public class PointOfSaleService {
 
     public void addTestSalePoint(){
 
+    }
+    public List<PointOfSale> findAll(){
+        return salePointsRepository.findAll();
     }
 }

@@ -18,12 +18,16 @@ import java.util.Set;
 @Data
 @Builder
 public class SportInventory implements Serializable {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     @ManyToOne(cascade = CascadeType.ALL)
     private  PointOfSale pointOfSale;
 
     @Column(nullable = false)
     @OneToMany(mappedBy = "sportInventory",fetch = FetchType.EAGER,cascade = CascadeType.ALL)
-    private Set<SportItemInfo> sportItemInfoList;
-    @Id
-    private String nameOfItem; //САМОКАТ
+    private List<SportItemInfo> sportItemInfoList = new ArrayList<>();
+
+    private String nameOfItem;
 }

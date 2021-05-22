@@ -25,12 +25,12 @@ public class SportItemInfo {
     @Column(nullable = false)
 
     @OneToMany(mappedBy = "sportItemInfo",fetch = FetchType.EAGER,cascade = CascadeType.ALL)
-    private Set<ReservationTime> reservationTimes;
+    private List<ReservationTime> reservationTimes = new ArrayList<>();
     @Column(nullable = false)
     private Long price;
 
     public enum State{
-        Available,NOTAVAILABLE
+        Available,NotAvailable
     }
 
 }
