@@ -1,14 +1,9 @@
 package ru.itis.demo.model;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.sql.Timestamp;
 
 @Entity
@@ -19,10 +14,13 @@ import java.sql.Timestamp;
 public class ReservationTime {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private Timestamp fromTime;
     private Timestamp toTime;
-    @ManyToOne
+    @JoinColumn(name = "sport_item_info")
+    @ManyToOne(cascade = CascadeType.ALL)
+
     private SportItemInfo sportItemInfo;
 }
