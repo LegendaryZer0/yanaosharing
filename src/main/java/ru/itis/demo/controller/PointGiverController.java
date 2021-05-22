@@ -20,12 +20,12 @@ public class PointGiverController {
     private PointOfSaleService pointOfSaleService;
 
     @GetMapping("/getPoints")
-    public List<PointOfSale> findUserPoints(Model model){
+    public ResponseEntity<?> findUserPoints(Model model){
         log.info("GG ");
         model.addAttribute("allMarkers", pointOfSaleService.findAll());
         model.addAttribute("countOfMarkers", pointOfSaleService.findAll().size());
         log.info("allMarkers : " + model.getAttribute("allMarkers"));
         log.info(("count: " + model.getAttribute("countOfMarkers")));
-        return pointOfSaleService.findAll();
+        return ResponseEntity.ok(pointOfSaleService.findAll());
     }
 }

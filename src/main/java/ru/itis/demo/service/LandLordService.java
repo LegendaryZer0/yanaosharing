@@ -20,7 +20,7 @@ public class LandLordService  {
 
 
     public Landlord findLandlordByName(String email){
-        return landlordRepository.findLandlordByEmail(email);
+        return landlordRepository.findLandlordByEmail(email).get();
     }
 
     @Transactional

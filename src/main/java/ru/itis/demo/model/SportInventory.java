@@ -27,6 +27,7 @@ public class SportInventory implements Serializable {
 
     @Column(nullable = false)
     @OneToMany(mappedBy = "sportInventory",fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+    @JsonIgnore
     private List<SportItemInfo> sportItemInfoList = new ArrayList<>();
 
     private String nameOfItem;

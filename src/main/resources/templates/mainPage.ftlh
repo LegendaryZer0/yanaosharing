@@ -73,7 +73,7 @@
             <div id="mapBlock"></div>
             <script>
                 let createButton = document.getElementById('createMap');
-                let xCor, yCor, nameOfOrg, descrOfOrg;
+                let xCor, yCor, nameOfOrg, descrOfOrg, allMarkers;
 
                 createButton.onclick = function () {
                     let container = document.createElement('div'),
@@ -88,17 +88,19 @@
                     mapBlock.appendChild(container);
 
                     DG.then(function () {
-                            let map, marker, allMarkers, countOfMarkers;
-                            window.location.replace('/getPoints');
-                            allMarkers = ${allMarkers};
-                            countOfMarkers = ${countOfMarkers};
+                            let map, marker, countOfMarkers;
+                            getAllMarkers();
+
                             map = DG.map('map', {
                                 center: [54.892, 52.317],
                                 zoom: 13
                             });
-                            for (let i = 0; i < countOfMarkers; i++) {
-                                markeri = DG.marker([allMarkers[i].xCor, allMarkers[i].yCor]).addTo(map).bindLabel('push me');
-                                markeri.bindPoup(allMarkers[i].nameOfOrg + '\n' + allMarkers[i].descrOfOrg);
+
+                            console.log(allMarkers);
+                            for (let i = 0; i < allMarkers.length; i++) {
+                                console.log(allMarkers[i].positionX + ' ' + allMarkers[i].positionY)
+                                markeri = DG.marker([allMarkers[i].positionX, allMarkers[i].positionY]).addTo(map).bindLabel('push me');
+                                markeri.bindPopup(allMarkers[i].nameOfOrganization + '\n' + allMarkers[i].description);
                                 console.log(markeri);
                             }
                             createMarker.onclick = function () {
@@ -175,6 +177,19 @@
                         },
                         error: function (e) {
                             $('#des').append($('<h4 id="err">Заполните все поля верно!</h4>'))
+                        }
+                    });
+                }
+               function getAllMarkers(){
+                    $.ajax({
+                        type: 'GET',
+                        async: false,
+                        url: '/getPoints',
+                        success: function (response){
+                            allMarkers = response;
+                        },
+                        error: function (e){
+                            console.log(e);
                         }
                     });
                 }
