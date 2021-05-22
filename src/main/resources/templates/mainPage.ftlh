@@ -54,7 +54,7 @@
     </style>
 </head>
 <body>
-<nav class="navbar navbar-light upper">
+<nav class="navbar navbar-light upper md-3">
     <div class="container-fluid d-flex justify-content-between align-items-center">
         <h1 class="ms-3">YANAO.SHARING</h1>
         <!— Кнопка перехода в профиль —>
@@ -63,9 +63,8 @@
 </nav>
 
 <!--Main-->
-<main>
-    <input id="createMarker" type="button"
-           value="Создать маркер"/>
+<main class="my-3 mt-3">
+    <input id="createMarker" type="button" value="Создать маркер"/>
     <input id="createMap" type="button" value="Показать карту"/>
     <div id="location" class="ml-3 mt-3" style="width: 100%; height: 80%">
         ORG:
@@ -84,17 +83,24 @@
 
                     let flag;
 
-                    container.style.position = 'relative';
-                    container.style.zIndex = '-1';
+                    container.style.width = '400px';
+                    container.style.height = '600px';
                     mapBlock.appendChild(container);
 
                     DG.then(function () {
-                            let map, marker;
+                            let map, marker, allMarkers, countOfMarkers;
+                            window.location.replace('/getPoints');
+                            allMarkers = ${allMarkers};
+                            countOfMarkers = ${countOfMarkers};
                             map = DG.map('map', {
                                 center: [54.892, 52.317],
                                 zoom: 13
                             });
-                            for(var i=0, i<)
+                            for (let i = 0; i < countOfMarkers; i++) {
+                                markeri = DG.marker([allMarkers[i].xCor, allMarkers[i].yCor]).addTo(map).bindLabel('push me');
+                                markeri.bindPoup(allMarkers[i].nameOfOrg + '\n' + allMarkers[i].descrOfOrg);
+                                console.log(markeri);
+                            }
                             createMarker.onclick = function () {
 
                                 document.getElementById('createMarker').hidden = true;
@@ -145,7 +151,6 @@
 
                 function doAjaxPost() {
 
-                    console.log(nameOfOrg + '      ' + descrOfOrg);
                     $('#err').remove();
                     $.ajax({
                         type: 'POST',

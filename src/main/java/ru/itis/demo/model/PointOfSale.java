@@ -1,5 +1,6 @@
 package ru.itis.demo.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -20,9 +21,11 @@ public class PointOfSale implements Serializable {
 
     @ManyToOne(cascade = CascadeType.ALL)
     @ToString.Exclude
+    @JsonIgnore
     private Landlord landlord;
 
     @OneToMany(mappedBy = "pointOfSale",fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+    @ToString.Exclude
     private List<SportInventory> sportInventoryList = new ArrayList<>();
     @Column(nullable = false)
     private String nameOfOrganization;

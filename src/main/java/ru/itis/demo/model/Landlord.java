@@ -1,6 +1,8 @@
 package ru.itis.demo.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreType;
 import com.sun.source.doctree.SerialDataTree;
 import lombok.*;
 
@@ -23,6 +25,7 @@ public class Landlord implements Serializable {
     private String phone;
 
     @ToString.Exclude
+    @JsonIgnore
     @OneToMany(mappedBy = "landlord",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     private List<PointOfSale> pointOfSales = new ArrayList<>();
 
