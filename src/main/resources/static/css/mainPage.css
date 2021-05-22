@@ -3,22 +3,33 @@
     margin: 0;
 }
 
+body {
+    width: 0;
+    height: 0;
+}
+
 button {
     cursor: pointer;
 
     outline: none;
     border: 0;
     background: 0;
+
+    pointer-events: all;
 }
 
 .header {
     width: 95vw;
     height: 15vh;
+
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+
     margin: 0 2vw;
+
+    pointer-events: none;
 }
 
 .header-text {
@@ -39,14 +50,11 @@ button {
     height: inherit;
 }
 
-.main {
+.main-container {
     width: 100%;
     height: 100%;
-    background: rgba(255, 255, 255, 1);
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-between;
+    position: absolute;
+    pointer-events: none;
 }
 
 .content {
@@ -64,6 +72,7 @@ button {
     top: 0;
 
     z-index: -1;
+    pointer-events: all;
 }
 
 #map {

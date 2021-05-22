@@ -12,20 +12,20 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
           rel="stylesheet">
-    <link rel="stylesheet" href="<@spring.url '/css/easy.css'/>">
+    <link rel="stylesheet" href="<@spring.url '/static/css/map.css'/>">
     <link rel="stylesheet" href="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/themes/sunny/jquery-ui.css">
     <script src="https://maps.api.2gis.ru/2.0/loader.js?pkg=full&lazy=true"></script>
 </head>
 <body>
-<nav class="navbar navbar-light upper">
+<#--<nav class="navbar navbar-light upper">
     <div class="container-fluid">
         <h1>YAMAO.SHARING</h1>
     </div>
-</nav>
+</nav>-->
 <div class="main d-flex justify-content-start align-items-center" style="position: absolute">
-    <form method="get" action="/filter" class="ms-5 shadow-lg p-3 mb-5 bg-body rounded filter">
-        <div class="form-switch row mb-3 mx-3 align-items-center" style="height: 5%; padding: 0;">
-            <div class="d-flex col-md-12 col-lg-6"><label class="form-check-label"
+    <form method="get" action="/filter" class="ms-5 shadow-lg p-3 pb-5 mb-5 bg-body rounded filter"
+          style="pointer-events: all;">
+        <div class="form-switch row mb-3 mx-3 align-items-center" style="height: 5%; padding: 0;">            <div class="d-flex col-md-12 col-lg-6"><label class="form-check-label"
                                                           for="flexSwitchCheckDefault">Карта</label></div>
             <div class="d-flex justify-content-md-center justify-content-lg-end col-md-12 col-lg-6"><input
                         class="form-check-input" type="checkbox" checked id="flexSwitchCheckDefault"
@@ -55,7 +55,8 @@
         </div>
         <div class="row mb-3 mx-3 align-items-start" style="height: 10%; padding: 0;">
             <div class="col-6"><label class="form-check-label">Цена</label></div>
-            <div class="col-6 selector"><label id="priceAmount" class="form-check-label d-flex align-items-center justify-content-end"></label>
+            <div class="col-6 selector"><label id="priceAmount"
+                                               class="form-check-label d-flex align-items-center justify-content-end"></label>
             </div>
             <div class="col-12" id="priceSlider">
                 <div id="slider-range-max"></div>
@@ -69,8 +70,12 @@
             </div>
         </div>
         <div class="mx-3 align-items-end row justify-content-between" style="height: 45%">
-            <button type="button" class="final-button col-md-12 col-lg-5 btn btn-outline-dark" style="height: 15%;">Отменить</button>
-            <button type="submit" class="final-button col-md-12 col-lg-5 btn btn-primary" style="height: 15%;">Применить</button>
+            <button type="button" class="final-button col-md-12 col-lg-5 btn btn-outline-dark" style="height: 15%;">
+                Отменить
+            </button>
+            <button type="submit" class="final-button col-md-12 col-lg-5 btn btn-primary" style="height: 15%;">
+                Применить
+            </button>
         </div>
 
         <!-- Modal -->
@@ -99,15 +104,13 @@
     </form>
 </div>
 
-
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
         crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-<script src="<@spring.url '/js/jquery-ui.js'/>"></script>
-<script src="<@spring.url '/js/jquery-ui-touch.js'/>"></script>
-<script src="<@spring.url '/js/map.js'/>"></script>
+<script src="<@spring.url '/static/js/jquery-ui.js'/>"></script>
+<script src="<@spring.url '/static/js/jquery-ui-touch.js'/>"></script>
+<script src="<@spring.url '/static/js/map.js'/>"></script>
 </body>
 </html>

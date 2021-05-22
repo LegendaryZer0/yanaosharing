@@ -13,7 +13,7 @@ public class MainPageController {
 
     @GetMapping("/yanaosharing")
     public String getMainPage() {
-        landLordService.saveLandlordWithPointOfSale();
+//        landLordService.saveLandlordWithPointOfSale();
         return "mainPage";
     }
 
