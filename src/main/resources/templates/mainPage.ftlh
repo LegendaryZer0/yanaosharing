@@ -15,7 +15,7 @@
     <link href="../static/css/mainPage.css" rel="stylesheet">
 </head>
 <body style="overflow: hidden; position: relative;">
-<div class="map-container">
+<div class="map-container" id="map-container">
     <div id="map"></div>
     <script type="text/javascript">
         $(document).ready(function () {
@@ -40,30 +40,24 @@
     </button>
 </header>
 <main class="main-container">
-    <#--<div class="content">
-        <!-- Modal window &ndash;&gt;
-        <div id="addNew" class="modal" hidden style="background-color: lightgray; position: absolute">
-            <div class="form-group s ml-3 mt-3">
-                <label for="nameOfOrgHelp">Введите заголовок:</label>
-                <input style="width: 350px" type="text" class="form-control" id="nameOfOrg"
-                       aria-describedby="emailHelp">
-                <small id="nameOfOrgHelp" class="form-text text-muted">от 3 до 50 символов</small>
-            </div>
-            <div id="des" class="form-group s ml-3 mt-3 mr-3">
-                <label for="descrOfOrgHelp">Введите описание:</label>
-                <textarea style="width: 350px" class="form-control" id="descrOfOrg" rows="3"></textarea>
-                <small id="descrOfOrgHelp" class="form-text text-muted">от 1 до 255 символов</small>
-            </div>
-            <input style="margin-left: 150px" type="button" class="btn btn-light" id="hid" value="Скрыть">
-            <input style="margin-left: 30px" type="button" class="btn btn-primary mb-2" id="createok"
-                   value="Создать">
-        </div>
-    </div>-->
-
     <div class="main d-flex justify-content-start align-items-center" style="position: absolute">
         <#-- TODO better make ajax -->
         <#include "*/map.ftlh">
     </div>
 </main>
+
+<div class="list" id="list"></div>
+
+<script>
+    $("#flexSwitchCheckDefault").change(function () {
+        if (this.checked) {
+            $("#map-container").show();
+            $("#list").hide();
+        } else {
+            $("#list").show();
+            $("#map-container").hide();
+        }
+    });
+</script>
 </body>
 </html>

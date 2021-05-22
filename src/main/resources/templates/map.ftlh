@@ -25,7 +25,8 @@
 <div class="main d-flex justify-content-start align-items-center" style="position: absolute">
     <form method="get" action="/filter" class="ms-5 shadow-lg p-3 pb-5 mb-5 bg-body rounded filter"
           style="pointer-events: all;">
-        <div class="form-switch row mb-3 mx-3 align-items-center" style="height: 5%; padding: 0;">            <div class="d-flex col-md-12 col-lg-6"><label class="form-check-label"
+        <div class="form-switch row mb-3 mx-3 align-items-center" style="height: 5%; padding: 0;">
+            <div class="d-flex col-md-12 col-lg-6"><label class="form-check-label"
                                                           for="flexSwitchCheckDefault">Карта</label></div>
             <div class="d-flex justify-content-md-center justify-content-lg-end col-md-12 col-lg-6"><input
                         class="form-check-input" type="checkbox" checked id="flexSwitchCheckDefault"
