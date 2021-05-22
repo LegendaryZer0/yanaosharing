@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -16,7 +17,7 @@ public class SportItemInfo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @JoinColumn(name = "sport_inventory")
+
     @ManyToOne(cascade = CascadeType.ALL)
     private SportInventory sportInventory;
     @Enumerated(EnumType.STRING)
@@ -24,7 +25,7 @@ public class SportItemInfo {
     @Column(nullable = false)
 
     @OneToMany(mappedBy = "sportItemInfo",fetch = FetchType.EAGER,cascade = CascadeType.ALL)
-    private Set<ReservationTime> reservationTimes;
+    private List<ReservationTime> reservationTimes;
     @Column(nullable = false)
     private Long price;
 

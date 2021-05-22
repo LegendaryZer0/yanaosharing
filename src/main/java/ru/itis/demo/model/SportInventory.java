@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -16,13 +17,12 @@ import java.util.Set;
 @Data
 @Builder
 public class SportInventory {
-    @JoinColumn(name = "point_of_sale")
     @ManyToOne(cascade = CascadeType.ALL)
     private  PointOfSale pointOfSale;
 
-    @Column(nullable = false,name = "sport_iteminfo_list")
+    @Column(nullable = false)
     @OneToMany(mappedBy = "sportInventory",fetch = FetchType.EAGER,cascade = CascadeType.ALL)
-    private Set<SportItemInfo> sportItemInfoList;
+    private List<SportItemInfo> sportItemInfoList ;
     @Id
     private String nameOfItem; //САМОКАТ
 }

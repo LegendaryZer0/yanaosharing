@@ -19,8 +19,6 @@ public class ReservationTime {
 
     private Timestamp fromTime;
     private Timestamp toTime;
-    @JoinColumn(name = "sport_item_info")
     @ManyToOne(cascade = CascadeType.ALL)
-
     private SportItemInfo sportItemInfo;
 }

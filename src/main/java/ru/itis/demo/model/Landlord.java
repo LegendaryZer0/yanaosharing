@@ -6,8 +6,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @Entity
 @AllArgsConstructor
@@ -24,8 +23,10 @@ public class Landlord implements Serializable {
     private String phone;
     @ToString.Exclude
     @OneToMany(mappedBy = "landlord",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
-    private Set<PointOfSale> pointOfSales;
+    private List<PointOfSale> pointOfSales;
 
+    @Enumerated(EnumType.STRING)
+    private State state;
     public enum State{
         ACTIVE,BANNED
     }
