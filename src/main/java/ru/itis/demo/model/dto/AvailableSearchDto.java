@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class AvailibleSearchDto {
+public class AvailableSearchDto {
     private Double xCor;
     private Double yCor;
     private String nameOfOrg;

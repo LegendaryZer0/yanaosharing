@@ -106,11 +106,9 @@
                             createMarker.onclick = function () {
 
                                 document.getElementById('createMarker').hidden = true;
-                                container.hidden = true;
                                 document.getElementById('addnew').hidden = false;
                                 document.getElementById('hid').onclick = function () {
                                     document.getElementById('addnew').hidden = true;
-                                    container.hidden = false;
                                     document.getElementById('createMarker').hidden = false;
                                 };
 
@@ -122,7 +120,6 @@
                                             descrOfOrg = $('#descrOfOrg').val();
 
                                             document.getElementById('addnew').hidden = true;
-                                            container.hidden = false;
                                             document.getElementById('createMarker').hidden = false;
 
                                             xCor = e.latlng.lat;
@@ -130,9 +127,10 @@
                                             marker = DG.marker([xCor, yCor]).addTo(map).bindLabel('push me');
                                             marker.bindPopup(nameOfOrg + '\n' + descrOfOrg);
                                             flag = false;
+                                            doAjaxPost();
                                         }
                                     });
-                                    //doAjaxPost();
+
                                 }
 
 
@@ -152,31 +150,24 @@
                 }
 
                 function doAjaxPost() {
-
                     $('#err').remove();
+                    console.log(xCor + ' ' + yCor);
                     $.ajax({
                         type: 'POST',
                         url: "/addMarker",
-                        dataType: 'json',
-                        data: sendData = {
-                            nameOfOrg: nameOfOrg,
-                            descrOfOrg: descrOfOrg,
-                            xCor: xCor,
-                            yCor: yCor
-                        },
-                        headers: {'X-CSRF-TOKEN': '${_csrf.token}'},
+                        contentType: 'application/json',
+                        data: JSON.stringify({
+                            'xCor': xCor,
+                            'yCor': yCor,
+                            'nameOfOrg': nameOfOrg,
+                            'descrOfOrg': descrOfOrg
+                        }),
                         success: function (response) {
                             $('#nameOfOrg').val('');
                             $('#descrOfOrg').val('');
-                            $('#capacity').val('');
-                            const insert = $('<div class="card card-align-center w" style="width: 60%;">' +
-                                '<div class="card-body"><h5 class="card-title">' + response.topic + '</h5>'
-                                + '<h6 class="card-subtitle mb-2 text-muted">' + response.description + '</h6>' +
-                                '</div></div>');
-                            $('#topics_list').prepend(insert);
                         },
                         error: function (e) {
-                            $('#des').append($('<h4 id="err">Заполните все поля верно!</h4>'))
+                            $('#des').append($('<h4 id="err">Что-то пошло не так</h4>'))
                         }
                     });
                 }
