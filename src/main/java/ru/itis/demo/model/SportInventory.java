@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -16,13 +17,17 @@ import java.util.Set;
 @NoArgsConstructor
 @Data
 @Builder
-public class SportInventory {
+public class SportInventory implements Serializable {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     @ManyToOne(cascade = CascadeType.ALL)
     private  PointOfSale pointOfSale;
 
     @Column(nullable = false)
     @OneToMany(mappedBy = "sportInventory",fetch = FetchType.EAGER,cascade = CascadeType.ALL)
-    private List<SportItemInfo> sportItemInfoList ;
-    @Id
-    private String nameOfItem; //САМОКАТ
+    private List<SportItemInfo> sportItemInfoList = new ArrayList<>();
+
+    private String nameOfItem;
 }
