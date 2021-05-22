@@ -14,6 +14,7 @@ public class UserGiverController {
     @GetMapping("/getPoints")
     public ResponseEntity<?> findUserPoints(Model model){
         model.addAttribute("allMarkers", pointOfSaleService.findAll());
+        model.addAttribute("countOfMarkers", pointOfSaleService.findAll().size());
         return ResponseEntity.ok(pointOfSaleService.findAll());
     }
 }

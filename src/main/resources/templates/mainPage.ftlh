@@ -6,8 +6,8 @@
     <title>Main page</title>
     <script src="https://maps.api.2gis.ru/2.0/loader.js?pkg=full&lazy=true"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstr.." rel="stylesheet"
-          integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css"
+          integrity="sha384-DhY6onE6f3zzKbjUPRc2hOzGAdEf4/Dz+WJwBvEYL/lkkIsI3ihufq9hk9K4lVoK" crossorigin="anonymous">
     <style>
         .upper {
             height: 5vh;
@@ -94,6 +94,7 @@
                                 center: [54.892, 52.317],
                                 zoom: 13
                             });
+                            for(var i=0, i<)
                             createMarker.onclick = function () {
 
                                 document.getElementById('createMarker').hidden = true;
@@ -123,7 +124,7 @@
                                             flag = false;
                                         }
                                     });
-                                    doAjaxPost();
+                                    //doAjaxPost();
                                 }
 
 
@@ -198,14 +199,5 @@
 
 
 </main>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstra.."
-        Container mieten in M&#252;nchen | abc Container
-        Container mieten in München | abc Container
-        abc-container.com
-
-        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
-        crossorigin="anonymous"></script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 </body>
 </html>
