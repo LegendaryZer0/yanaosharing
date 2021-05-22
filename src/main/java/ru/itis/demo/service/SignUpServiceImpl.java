@@ -23,8 +23,8 @@ public class SignUpServiceImpl implements SignUpService {
     @Override
     public Person signUp(RegistrationDto registrationDto) {
         Optional<Person> optionalPerson = personRepository.findByEmail(registrationDto.getEmail());
-        if (optionalPerson.isPresent()) {
-            throw new EntityExistsException();
+        if (optionalPerson.isEmpty()) {
+            throw new EntityExistsException("User is not exist");
         }
 
         Person person = Person.builder()
