@@ -1,6 +1,7 @@
 package ru.itis.demo.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.itis.demo.model.PointOfSale;
@@ -53,4 +54,6 @@ public class PointOfSaleService {
 
         return salePointsRepository.getPointOfSaleByPriceBetween(minPrice,maxPrice);
     }
+
+
 }
