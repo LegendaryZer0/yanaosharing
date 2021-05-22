@@ -1,0 +1,59 @@
+.navbar h1 {
+    font-family: Jost, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 52px;
+    color: #2B67F6;
+}
+
+.upper {
+    height: 5vh;
+}
+
+.main {
+    height: 95vh;
+}
+
+.filter {
+    height: 80vh;
+    width: 20%;
+}
+
+.filter label {
+    font-family: Jost, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 35px;
+    color: #000000;
+}
+
+.selector label{
+    font-family: Jost, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 20px;
+    color: #2B67F6;
+
+    height: 40px;
+    width: 100%;
+}
+
+.ui-slider.ui-slider-horizontal {
+    background: #2B67F6;
+
+    height: 3px;
+    border:none;
+}
+.ui-slider .ui-slider-handle {
+    background: #FFFFFF !important;
+    border: 1px solid #2B67F6 !important;
+    box-sizing: border-box;
+    border-radius: 50px;
+}
+.ui-slider .ui-slider-range {
+    background: #D9D9D9;
+    height: 3px;
+}
