@@ -1,5 +1,6 @@
 package ru.itis.demo.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -23,7 +24,8 @@ public class SportItemInfo {
     @Enumerated(EnumType.STRING)
     private  State state;
     @Column(nullable = false)
-
+    @ToString.Exclude
+    @JsonIgnore
     @OneToMany(mappedBy = "sportItemInfo",fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     private List<ReservationTime> reservationTimes = new ArrayList<>();
     @Column(nullable = false)

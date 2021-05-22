@@ -1,10 +1,8 @@
 package ru.itis.demo.model;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -23,6 +21,8 @@ public class SportInventory implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @ManyToOne(cascade = CascadeType.ALL)
+    @ToString.Exclude
+    @JsonIgnore
     private  PointOfSale pointOfSale;
 
     @Column(nullable = false)

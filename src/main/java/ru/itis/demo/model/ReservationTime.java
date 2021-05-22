@@ -1,6 +1,7 @@
 package ru.itis.demo.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -20,6 +21,8 @@ public class ReservationTime implements Serializable {
 
     private Timestamp fromTime;
     private Timestamp toTime;
+    @ToString.Exclude
+    @JsonIgnore
     @ManyToOne(cascade = CascadeType.ALL)
     private SportItemInfo sportItemInfo;
 }
