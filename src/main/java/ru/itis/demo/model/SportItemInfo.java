@@ -25,7 +25,7 @@ public class SportItemInfo {
     @Column(nullable = false)
 
     @OneToMany(mappedBy = "sportItemInfo",fetch = FetchType.EAGER,cascade = CascadeType.ALL)
-    private List<ReservationTime> reservationTimes= new ArrayList<>();
+    private Set<ReservationTime> reservationTimes;
     @Column(nullable = false)
     private Long price;
 

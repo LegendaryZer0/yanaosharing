@@ -23,13 +23,15 @@ public class PointOfSale implements Serializable {
     private Landlord landlord;
 
     @OneToMany(mappedBy = "pointOfSale",fetch = FetchType.EAGER,cascade = CascadeType.ALL)
-    private List<SportInventory> sportInventoryList = new ArrayList<>();
+    private Set<SportInventory> sportInventoryList ;
     @Column(nullable = false)
     private String nameOfOrganization;
     @Column(nullable = false)
     private Double positionX;
     @Column(nullable = false)
     private Double positionY;
+
+    private String description;
 
 
 }

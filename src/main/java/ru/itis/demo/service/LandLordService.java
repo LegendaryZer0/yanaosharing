@@ -18,37 +18,64 @@ public class LandLordService  {
     private LandlordRepository landlordRepository;
     @Transactional
     public void saveLandlordWithPointOfSale(){
-       Landlord landlord= Landlord.builder()
+/*       Landlord landlord= Landlord.builder()
                 .email("email.@gmail.com")
                 .password("Wonderfullpassword")
                 .phone("+732839842")
+
                 .build();
        log.info(landlord.toString());
-       landlord.setPointOfSales(new ArrayList<PointOfSale>());
+
 
        landlord.getPointOfSales().add(PointOfSale.builder() //Todo я
                .nameOfOrganization("SportFIX")
                .positionX(34.43523)
                .landlord(landlord) //
                .positionY(21.42545) .build());
-       landlordRepository.save(landlord);
-        /*landlordRepository.save(Landlord.builder()
+       landlordRepository.save(landlord);*/
+        Landlord landlord  =Landlord.builder()
 
                 .email("email.@gmail.com")
                 .password("Wonderfullpassword")
                 .phone("+732839842")
-                .pointOfSales(Collections.singletonList(PointOfSale.builder()
+                .pointOfSales(Collections.singleton(PointOfSale.builder()
                         .nameOfOrganization("SportFIX")
                         .positionX(34.43523)
                         .positionY(21.42545)
 
 
-                        .sportInventoryList(Collections.singletonList(SportInventory.builder() //Todo ага по моему  всё в not null падёт
+
+                        .sportInventoryList(Collections.singleton(SportInventory.builder() //Todo ага по моему  всё в not null падёт
                                 .nameOfItem("Самокат")
-                                .sportItemInfoList(Collections.singletonList(SportItemInfo.builder()
+                                .sportItemInfoList(Collections.singleton(SportItemInfo.builder()
                                         .price(500L)
                                         .state(SportItemInfo.State.Available)
-                                        .reservationTimes(Collections.singletonList(ReservationTime.builder()
+                                        .reservationTimes(Collections.singleton(ReservationTime.builder()
+                                                .fromTime(Timestamp.valueOf(LocalDateTime.now()))
+                                                .toTime(Timestamp.valueOf(LocalDateTime.now().plusHours(2)))
+                                                .build()))
+                                        .build()))
+                                .build()))
+                        .build()))
+                .build();
+
+        landlordRepository.save(landlord);
+        landlordRepository.save(Landlord.builder()
+
+                .email("тщьфшд.@gmail.com")
+                .password("Wonderfullpassword132234523")
+                .phone("+732839823432442")
+                .pointOfSales(Collections.singleton(PointOfSale.builder()
+                        .nameOfOrganization("RUNsprort")
+                        .positionX(344.43523423)
+                        .positionY(214.42532445)
+
+                        .sportInventoryList(Collections.singleton(SportInventory.builder()
+                                .nameOfItem("Велосипед")
+                                .sportItemInfoList(Collections.singleton(SportItemInfo.builder()
+                                        .price(400L)
+                                        .state(SportItemInfo.State.Available)
+                                        .reservationTimes(Collections.singleton(ReservationTime.builder()
                                                 .fromTime(Timestamp.valueOf(LocalDateTime.now()))
                                                 .toTime(Timestamp.valueOf(LocalDateTime.now().plusHours(2)))
                                                 .build()))
@@ -56,28 +83,5 @@ public class LandLordService  {
                                 .build()))
                         .build()))
                 .build());
-        landlordRepository.save(Landlord.builder()
-
-                .email("тщьфшд.@gmail.com")
-                .password("Wonderfullpassword132234523")
-                .phone("+732839823432442")
-                .pointOfSales(Collections.singletonList(PointOfSale.builder()
-                        .nameOfOrganization("RUNsprort")
-                        .positionX(344.43523423)
-                        .positionY(214.42532445)
-
-                        .sportInventoryList(Collections.singletonList(SportInventory.builder()
-                                .nameOfItem("Велосипед")
-                                .sportItemInfoList(Collections.singletonList(SportItemInfo.builder()
-                                        .price(400L)
-                                        .state(SportItemInfo.State.Available)
-                                        .reservationTimes(Collections.singletonList(ReservationTime.builder()
-                                                .fromTime(Timestamp.valueOf(LocalDateTime.now()))
-                                                .toTime(Timestamp.valueOf(LocalDateTime.now().plusHours(2)))
-                                                .build()))
-                                        .build()))
-                                .build()))
-                        .build()))
-                .build());*/
     }
 }

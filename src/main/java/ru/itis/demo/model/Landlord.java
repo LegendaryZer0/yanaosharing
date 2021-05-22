@@ -23,7 +23,7 @@ public class Landlord implements Serializable {
     private String phone;
 
     @OneToMany(mappedBy = "landlord",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
-    private List<PointOfSale> pointOfSales = new ArrayList<>();
+    private Set<PointOfSale> pointOfSales;
 
     @Enumerated(EnumType.STRING)
     private State state;

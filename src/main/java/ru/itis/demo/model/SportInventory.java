@@ -23,7 +23,7 @@ public class SportInventory implements Serializable {
 
     @Column(nullable = false)
     @OneToMany(mappedBy = "sportInventory",fetch = FetchType.EAGER,cascade = CascadeType.ALL)
-    private List<SportItemInfo> sportItemInfoList = new ArrayList<>();
+    private Set<SportItemInfo> sportItemInfoList;
     @Id
     private String nameOfItem; //САМОКАТ
 }
