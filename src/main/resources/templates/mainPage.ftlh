@@ -55,7 +55,7 @@
 <body>
 <nav class="navbar navbar-light upper">
     <div class="container-fluid d-flex justify-content-between align-items-center">
-        <h1 class="ms-3">YAMAO.SHARING</h1>
+        <h1 class="ms-3">YANAO.SHARING</h1>
         <!— Кнопка перехода в профиль —>
         <button type="button" class="me-3 btn btn-primary btn-circle"></button>
     </div>
