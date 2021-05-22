@@ -22,11 +22,12 @@
     </div>
 </nav>
 <div class="main d-flex justify-content-start align-items-center">
-    <form class="ms-5 shadow-lg p-3 mb-5 bg-body rounded filter">
+    <form method="get" action="/filter" class="ms-5 shadow-lg p-3 mb-5 bg-body rounded filter">
         <div class="form-switch row mb-3 mx-3 align-items-center" style="height: 5%; padding: 0;">
-            <div class="d-flex col-md-12 col-lg-6"><label class="form-check-label" for="flexSwitchCheckDefault">Карта</label></div>
+            <div class="d-flex col-md-12 col-lg-6"><label class="form-check-label"
+                                                          for="flexSwitchCheckDefault">Карта</label></div>
             <div class="d-flex justify-content-md-center justify-content-lg-end col-md-12 col-lg-6"><input
-                        class="form-check-input" type="checkbox" id="flexSwitchCheckDefault"
+                        class="form-check-input" type="checkbox" checked id="flexSwitchCheckDefault"
                         style="width: 60px; height: 28px;"></div>
         </div>
         <div class="mx-3 row mb-3 justify-content-center" style="height: 20%;">
@@ -59,6 +60,16 @@
                 <div id="slider-range-max"></div>
                 <input id="price" type="hidden" name="price">
             </div>
+        </div>
+        <div class="row mb-3 mx-3 align-items-center" style="height: 10%; padding: 0;">
+            <div class="col-6"><label class="form-check-label">Дата и время</label></div>
+            <div class="col-6 d-flex justify-content-start">
+                <input class="btn btn-outline-dark" type="datetime-local" name="date-time">
+            </div>
+        </div>
+        <div class="mx-3 align-items-end row justify-content-between" style="height: 45%">
+            <button type="button" class="final-button col-md-12 col-lg-5 btn btn-outline-dark" style="height: 15%;">Отменить</button>
+            <button type="submit" class="final-button col-md-12 col-lg-5 btn btn-primary" style="height: 15%;">Применить</button>
         </div>
 
         <!-- Modal -->
