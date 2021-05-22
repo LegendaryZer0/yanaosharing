@@ -1,5 +1,6 @@
 package ru.itis.demo.service;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -7,17 +8,31 @@ import ru.itis.demo.model.*;
 import ru.itis.demo.repository.LandlordRepository;
 
 import java.sql.Timestamp;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Collections;
-
+@Slf4j
 @Service
 public class LandLordService  {
     @Autowired
     private LandlordRepository landlordRepository;
     @Transactional
     public void saveLandlordWithPointOfSale(){
-        landlordRepository.save(Landlord.builder()
+       Landlord landlord= Landlord.builder()
+                .email("email.@gmail.com")
+                .password("Wonderfullpassword")
+                .phone("+732839842")
+                .build();
+       log.info(landlord.toString());
+       landlord.setPointOfSales(new ArrayList<PointOfSale>());
+
+       landlord.getPointOfSales().add(PointOfSale.builder() //Todo я
+               .nameOfOrganization("SportFIX")
+               .positionX(34.43523)
+               .landlord(landlord) //
+               .positionY(21.42545) .build());
+       landlordRepository.save(landlord);
+        /*landlordRepository.save(Landlord.builder()
 
                 .email("email.@gmail.com")
                 .password("Wonderfullpassword")
@@ -27,7 +42,8 @@ public class LandLordService  {
                         .positionX(34.43523)
                         .positionY(21.42545)
 
-                        .sportInventoryList(Collections.singletonList(SportInventory.builder()
+
+                        .sportInventoryList(Collections.singletonList(SportInventory.builder() //Todo ага по моему  всё в not null падёт
                                 .nameOfItem("Самокат")
                                 .sportItemInfoList(Collections.singletonList(SportItemInfo.builder()
                                         .price(500L)
@@ -62,6 +78,6 @@ public class LandLordService  {
                                         .build()))
                                 .build()))
                         .build()))
-                .build());
+                .build());*/
     }
 }
