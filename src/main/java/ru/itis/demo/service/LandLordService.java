@@ -18,6 +18,11 @@ public class LandLordService  {
     @Autowired
     private LandlordRepository landlordRepository;
 
+
+    public Landlord findLandlordByName(String email){
+        return landlordRepository.findLandlordByEmail(email);
+    }
+
     @Transactional
     public void saveLandlordWithPointOfSale(){
 
@@ -30,6 +35,7 @@ public class LandLordService  {
         SportItemInfo sportItemInfo = new SportItemInfo();
         sportItemInfo.setPrice(500L);
         sportItemInfo.setState(SportItemInfo.State.Available);
+
 
         ReservationTime reservationTime = ReservationTime.builder()
                 .fromTime(Timestamp.valueOf(LocalDateTime.now()))
@@ -46,6 +52,7 @@ public class LandLordService  {
 
         sportItemInfo.setSportInventory(sportInventory);
 
+        sportItemInfo.setSportInventory(sportInventory);
         PointOfSale pointOfSale = new PointOfSale();
         pointOfSale.setNameOfOrganization("SportFIX");
         pointOfSale.setPositionX(34.43523);

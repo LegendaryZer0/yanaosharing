@@ -1,5 +1,6 @@
 package ru.itis.demo.config.security;
 
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import ru.itis.demo.repository.PersonRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,7 @@ import java.io.IOException;
 @Slf4j
 @Configuration
 @EnableWebSecurity
+@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     class LoginPageFilter extends GenericFilterBean {

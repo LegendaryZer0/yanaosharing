@@ -30,7 +30,7 @@ public class SportItemInfo {
     private Long price;
 
     public enum State{
-        Available,NOTAVAILABLE
+        Available,NotAvailable
     }
 
 }
