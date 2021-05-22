@@ -11,6 +11,8 @@ import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Random;
+
 @Slf4j
 @Service
 public class LandLordService  {
@@ -27,7 +29,7 @@ public class LandLordService  {
     public void saveLandlordWithPointOfSale(){
 
         Landlord landlord = new Landlord();
-        landlord.setEmail("email.@gmail.com");
+        landlord.setEmail("email.@gmail.com" + new Random().nextInt(100));
         landlord.setPassword("Wonderfullpassword");
         landlord.setPhone("+732839842");
         log.info(landlord.toString());
