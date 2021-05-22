@@ -3,13 +3,11 @@ package ru.itis.demo.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ru.itis.demo.model.Landlord;
 import ru.itis.demo.model.PointOfSale;
 import ru.itis.demo.repository.SalePointsRepository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityNotFoundException;
-import javax.persistence.EntityTransaction;
 import java.util.List;
 
 @Service
@@ -42,5 +40,17 @@ public class PointOfSaleService {
     }
     public List<PointOfSale> findAll(){
         return salePointsRepository.findAll();
+    }
+
+
+
+    public List<PointOfSale> findAllByPriceBetweenAndItemName(Long minPrice,Long maxPrice, String itemName){
+
+        return salePointsRepository.getSalePointsWithPriceBetweenAndItemName(minPrice,maxPrice,itemName);
+    }
+
+    public List<PointOfSale> findAllByPriceBetween(Long minPrice,Long maxPrice){
+
+        return salePointsRepository.getPointOfSaleByPriceBetween(minPrice,maxPrice);
     }
 }

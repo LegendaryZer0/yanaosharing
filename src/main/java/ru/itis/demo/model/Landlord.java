@@ -18,6 +18,7 @@ public class Landlord implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long landlordId;
 
+    @Column(unique = true)
     private String email;
     private String password;
     private String phone;
