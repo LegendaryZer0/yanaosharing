@@ -14,6 +14,6 @@ public class MarkerService {
 
     public void saveMarker(AvailibleSearchDto dto, Principal principal){
         Landlord landlord =landLordService.findLandlordByName(principal.getName());
-        landlord.getPointOfSales().add()
+       // landlord.getPointOfSales().add();
     }
 }
