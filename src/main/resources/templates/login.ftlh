@@ -29,7 +29,7 @@
                        id="exampleInputPassword1">
             </div>
             <button type="submit" class="btn btn-default login-submit"><@spring.message code="login.enter" /></button>
-            <a href="register" class="btn btn-default login-submit left"><@spring.message code="login.register" /></a>
+            <a href="/registration" class="btn btn-default login-submit left"><@spring.message code="login.register" /></a>
             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 
             <a href="${rc.getContextPath()}/oauth2/authorization/google" class="btn btn-default login-submit left"><@spring.message code="login.google" /></a>
