@@ -24,6 +24,7 @@ public class Landlord implements Serializable {
     private String email;
     private String password;
     private String phone;
+    private String name;
 
     @ToString.Exclude
     @JsonIgnore
